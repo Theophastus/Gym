@@ -343,28 +343,15 @@ body {
   background: rgba(15,23,42,0.5);
   border-top: 1px solid var(--border);
 }
-.btn-yt, .btn-exrx {
-  flex: 1;
-  padding: 8px 10px;
-  border-radius: 7px;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.2s;
-}
+.btn-yt, 
 .btn-yt {
   background: rgba(239,68,68,0.15);
   color: #F87171;
   border: 1px solid rgba(239,68,68,0.3);
 }
 .btn-yt:hover { background: rgba(239,68,68,0.25); }
-.btn-exrx {
-  background: rgba(59,130,246,0.15);
-  color: #93C5FD;
-  border: 1px solid rgba(59,130,246,0.3);
-}
-.btn-exrx:hover { background: rgba(59,130,246,0.25); }
+
+
 
 /* ── PROGRAM NOTES ── */
 .notes-grid {
@@ -373,9 +360,6 @@ body {
   gap: 16px;
   margin-bottom: 80px;
 }
-
-.notes-grid { margin-bottom: 60px; }
-body { padding-bottom: 40px; }
 .note-card {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -396,6 +380,32 @@ body { padding-bottom: 40px; }
 }
 .note-card ul { padding-left: 16px; }
 .note-card li { margin-bottom: 4px; }
+
+
+/* ── TRISET STYLING ── */
+.block-title.triset { color: #F97316; border-bottom: 1px solid #F9731633; }
+.triset-tag {
+  display: inline-block;
+  background: rgba(249,115,22,0.15);
+  color: #FB923C;
+  border: 1px solid rgba(249,115,22,0.3);
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 430px) {
+  
+  
+  
+  .targets-table th { font-size: 8px; padding: 5px 8px 5px 12px; }
+  .targets-table td { font-size: 11px; padding: 7px 8px 7px 12px; }
+  
+}
 
 /* ── FOOTER ── */
 .footer {
@@ -425,89 +435,7 @@ body { padding-bottom: 40px; }
   .day-header, .workout-block { padding-left: 20px; padding-right: 20px; }
   .ex-grid { grid-template-columns: 1fr; }
 }
-
-/* ── GLOBAL MOBILE HELPERS ── */
-* { -webkit-tap-highlight-color: transparent; }
-.nav { -webkit-overflow-scrolling: touch; }
-section[id] { scroll-margin-top: 50px; }
-.workout-block-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.ex-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-
-@media (max-width: 680px) {
-  .hero { padding: 56px 20px 40px; }
-  .hero h1 { font-size: 64px; }
-  .hero-stats { gap: 24px; }
-  .section-title { font-size: 32px; padding-top: 44px; }
-  .section-desc { font-size: 15px; }
-  .freq-grid { grid-template-columns: 1fr 1fr; }
-  .notes-grid { grid-template-columns: 1fr; }
-  .container { padding: 0 14px; }
-  .ex-grid { grid-template-columns: 1fr; }
-  .btn-yt, .btn-exrx { padding: 9px 8px; font-size: 12px; min-height: 40px; }
-  .day-header { padding: 22px 18px; }
-  .workout-block { padding: 0 18px 16px; }
-  .day-meta { padding: 10px 18px; }
-}
-
-@media (max-width: 430px) {
-  .hero { padding: 44px 14px 32px; }
-  .hero h1 { font-size: 46px; line-height: 0.92; }
-  .hero-eyebrow { font-size: 10px; letter-spacing: 0.18em; }
-  .hero-sub { font-size: 14px; margin-bottom: 20px; }
-  .hero-stats { gap: 16px; }
-  .hero-stat .val { font-size: 26px; }
-  .hero-stat .key { font-size: 9px; }
-  .nav { padding: 0 4px; }
-  .nav a { padding: 13px 7px; font-size: 10px; letter-spacing: 0.04em; }
-  .container { padding: 0 12px; }
-  .section-title { font-size: 26px; padding-top: 32px; }
-  .section-desc { font-size: 13px; margin-bottom: 22px; }
-  .freq-grid { grid-template-columns: 1fr; gap: 8px; }
-  .freq-card { padding: 11px 13px; }
-  .freq-card .muscle-name { font-size: 13px; }
-  .freq-card .freq-info { font-size: 11px; }
-  .day-section { margin-bottom: 24px; border-radius: 10px; }
-  .day-header { padding: 15px 13px; }
-  .day-num { font-size: 9px; }
-  .day-title { font-size: 18px !important; }
-  .day-sub { font-size: 12px; }
-  .day-meta { padding: 8px 13px; flex-direction: column; gap: 5px; align-items: flex-start; }
-  .meta-pill { font-size: 11px; padding: 3px 9px; }
-  .workout-block { padding: 0 11px 12px; }
-  .block-title { font-size: 10px; padding: 10px 0 7px; letter-spacing: 0.1em; }
-  .workout-table td { font-size: 12px; padding: 7px 4px 7px 0; line-height: 1.35; vertical-align: top; }
-  .workout-table th { font-size: 8px; padding: 0 4px 5px 0; }
-  .setsreps { font-size: 12px !important; white-space: nowrap; }
-  .rest { font-size: 10px !important; white-space: nowrap; }
-  .workout-table td:first-child { max-width: 170px; word-break: normal; }
-  .ex-card { border-radius: 10px; }
-  .ex-card-top { padding: 12px 13px 9px; }
-  .ex-name { font-size: 15px; }
-  .ex-muscles { font-size: 10px; }
-  .ex-card-body { padding: 11px 13px; }
-  .ex-card-body p { font-size: 12px; margin-bottom: 6px; line-height: 1.45; }
-  .lbl { font-size: 8px; margin-right: 4px; }
-  .cue-list { margin-top: 7px; padding-left: 14px; }
-  .cue-list li { font-size: 11px; margin-bottom: 3px; line-height: 1.4; }
-  .ex-card-footer { padding: 9px 13px; gap: 7px; }
-  .btn-yt, .btn-exrx { font-size: 12px; padding: 10px 6px; min-height: 42px; border-radius: 7px; display: flex; align-items: center; justify-content: center; }
-  .note-card { padding: 13px 14px; border-radius: 10px; }
-  .note-card h3 { font-size: 14px; margin-bottom: 7px; }
-  .note-card p, .note-card li { font-size: 12px; line-height: 1.5; }
-  .footer { padding: 36px 16px; }
-  .footer p { font-size: 16px; }
-  .footer small { font-size: 10px; }
-}
-
-@media (max-width: 375px) {
-  .hero h1 { font-size: 40px; }
-  .hero-stats { gap: 10px; }
-  .hero-stat .val { font-size: 22px; }
-  .nav a { padding: 12px 6px; font-size: 9px; }
-  .day-title { font-size: 16px !important; }
-  .workout-table td:first-child { max-width: 145px; }
-  .freq-grid { grid-template-columns: 1fr; }
-}
+.btn-yt { width: 100%; display: flex; align-items: center; justify-content: center; }
 </style>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -520,7 +448,7 @@ section[id] { scroll-margin-top: 50px; }
 <div class="hero">
   <div class="hero-eyebrow">Pull · Push · Legs · 6 Days</div>
   <h1>THEOPHASTUS'S<br><span>REGIME</span></h1>
-  <p class="hero-sub">My training system. Built around the equipment I have, the time I put in, and exactly what I want out of it — muscle, strength, and no belly fat.</p>
+  <p class="hero-sub">My training system. Built around the equipment I have, the time I put in, and exactly what I want — muscle, strength, and no belly fat.</p>
   <div class="hero-stats">
     <div class="hero-stat"><div class="val">6</div><div class="key">Training Days</div></div>
     <div class="hero-stat"><div class="val">3–4</div><div class="key">Hours / Session</div></div>
@@ -550,7 +478,7 @@ section[id] { scroll-margin-top: 50px; }
 
 <section id="overview">
 <div class="section-title">My Structure</div>
-<p class="section-desc">Each day pairs a primary muscle group with a secondary block. The two weekly sessions of the same type always use completely different exercises — no repeats, no stagnation.</p>
+<p class="section-desc">Each day pairs a primary muscle group with a secondary block. The two weekly sessions of the same type always use completely different exercises.</p>
 
 <div class="freq-grid">
 <div class="freq-card">
@@ -558,80 +486,83 @@ section[id] { scroll-margin-top: 50px; }
   <div><div class="muscle-name">Back</div><div class="freq-info">2× per week &nbsp;·&nbsp; Mon (deadlift-led) + Thu (row-led)</div></div>
 </div><div class="freq-card">
   <div class="freq-dot" style="background:#EF4444"></div>
-  <div><div class="muscle-name">Chest</div><div class="freq-info">2× per week &nbsp;·&nbsp; Tue (flat bench) + Fri (incline/OHP)</div></div>
+  <div><div class="muscle-name">Chest</div><div class="freq-info">2× per week &nbsp;·&nbsp; Tue (barbell flat) + Fri (dumbbell flat + Smith incline)</div></div>
 </div><div class="freq-card">
   <div class="freq-dot" style="background:#F97316"></div>
-  <div><div class="muscle-name">Shoulders</div><div class="freq-info">2× per week &nbsp;·&nbsp; Tue + Fri — front, lateral, rear covered</div></div>
+  <div><div class="muscle-name">Shoulders</div><div class="freq-info">2× per week &nbsp;·&nbsp; Tue + Fri — targeted, 3–4 exercises</div></div>
 </div><div class="freq-card">
   <div class="freq-dot" style="background:#8B5CF6"></div>
-  <div><div class="muscle-name">Biceps</div><div class="freq-info">3× per week &nbsp;·&nbsp; Mon, Thu, Sat — all different exercise pools</div></div>
+  <div><div class="muscle-name">Biceps</div><div class="freq-info">2× per week &nbsp;·&nbsp; Mon (Pull A) + Thu (Pull B) — different pools</div></div>
 </div><div class="freq-card">
   <div class="freq-dot" style="background:#EC4899"></div>
-  <div><div class="muscle-name">Triceps</div><div class="freq-info">3× per week &nbsp;·&nbsp; Tue, Fri, Sat — all different exercise pools</div></div>
+  <div><div class="muscle-name">Triceps</div><div class="freq-info">2× per week &nbsp;·&nbsp; Tue (Push A) + Fri (Push B) — different pools</div></div>
 </div><div class="freq-card">
   <div class="freq-dot" style="background:#10B981"></div>
-  <div><div class="muscle-name">Legs</div><div class="freq-info">2× per week &nbsp;·&nbsp; Wed (squat-led) + Sat (RDL-led)</div></div>
+  <div><div class="muscle-name">Legs</div><div class="freq-info">2× per week &nbsp;·&nbsp; Wed (all guns, 8 exercises) + Sat (moderate + functional)</div></div>
 </div><div class="freq-card">
   <div class="freq-dot" style="background:#F59E0B"></div>
-  <div><div class="muscle-name">Abs + Sides</div><div class="freq-info">6× per week &nbsp;·&nbsp; Every training day — 5 approved movements</div></div>
-</div></div></section><div class="section-title" id="workouts">The Week</div><p class="section-desc">Six days. Every session starts with cardio, ends with cardio. Heavy compounds first, arms and shoulders covered three times each week, abs and sides every single day.</p><section id="day01" class="day-section">
+  <div><div class="muscle-name">Abs</div><div class="freq-info">3× per week &nbsp;·&nbsp; Mon, Wed, Fri — Hanging Knee Raise, Toe Touch, Plank</div></div>
+</div><div class="freq-card">
+  <div class="freq-dot" style="background:#6366F1"></div>
+  <div><div class="muscle-name">Sides</div><div class="freq-info">3× per week &nbsp;·&nbsp; Tue, Thu, Sat — Side Plank, Side Bend, Oblique Crunch, Leg Twists</div></div>
+</div></div></section><div class="section-title" id="workouts">The Week</div><p class="section-desc">Six days. Cardio baked into the warm-up. Weights added to every exercise. 2-week progressive overload targets on every day — update after 2 weeks.</p><section id="day01" class="day-section">
 <div class="day-header" style="background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)">
   <div class="day-num">DAY 01</div>
   <div class="day-title">Monday: Pull A</div>
   <div class="day-sub">Back (Deadlift-led) · Biceps A · Forearms</div>
 </div>
 <div class="day-meta">
-  <div class="meta-pill warmup">🔥 Rowing Machine — 10–12 min moderate pace</div>
-  <div class="meta-pill finisher">⚡ Air Bike HIIT — 15 min (30 sec all-out / 30 sec easy)</div>
-</div><div class="workout-block"><div class="block-title">Primary Back Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Deadlift</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Wide-Grip Lat Pulldown</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Seated Cable Row (close V-grip)</td><td class="setsreps">4 × 10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Low-to-High Incline Cable Pull</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Single-Arm Dumbbell Row</td><td class="setsreps">3 × 10 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Straight-Arm Cable Pulldown</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="even"><td>Cable Face Pull (rope, eye level)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Barbell Shrug</td><td class="setsreps">4 × 10</td><td class="rest">75 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Biceps A Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Bicep Curl</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Incline Dumbbell Curl (45° bench)</td><td class="setsreps">4 × 10 each</td><td class="rest">75 sec</td></tr><tr class="even"><td>Cable Preacher Curl</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Concentration Curl</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Forearm Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Reverse Barbell Curl</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Barbell Wrist Curl (seated, over knees)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Reverse Wrist Curl</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Oblique Side Crunch</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section><section id="day02" class="day-section">
+  <div class="meta-pill warmup">🔥 Rowing Machine — 22 min moderate-high (~220 cal)</div>
+  <div class="meta-pill finisher">⚡ Warm-up covers the cardio target. No separate finisher.</div>
+</div><div class="workout-block"><div class="block-title">Primary Back Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Deadlift</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Wide-Grip Lat Pulldown</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Seated Cable Row (close V-grip)</td><td class="setsreps">4 × 10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Low-to-High Incline Cable Pull</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Single-Arm Dumbbell Row</td><td class="setsreps">3 × 10 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Straight-Arm Cable Pulldown</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="even"><td>Cable Face Pull (rope, eye level)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Barbell Shrug</td><td class="setsreps">4 × 10</td><td class="rest">75 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Biceps A Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Bicep Curl</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Incline Dumbbell Curl (45° bench)</td><td class="setsreps">4 × 10 each</td><td class="rest">75 sec</td></tr><tr class="even"><td>Cable Preacher Curl</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Concentration Curl</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Forearm Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Reverse Barbell Curl</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Barbell Wrist Curl (seated)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Reverse Wrist Curl</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div></section><section id="day02" class="day-section">
 <div class="day-header" style="background: linear-gradient(135deg, #F97316 0%, #C2410C 100%)">
   <div class="day-num">DAY 02</div>
   <div class="day-title">Tuesday: Push A</div>
-  <div class="day-sub">Chest (Flat Bench-led) · Shoulders A · Triceps A</div>
+  <div class="day-sub">Chest (Barbell Flat-led) · Shoulders A · Triceps A</div>
 </div>
 <div class="day-meta">
-  <div class="meta-pill warmup">🔥 Cross Trainer — 10 min moderate</div>
-  <div class="meta-pill finisher">⚡ Treadmill 6–8% incline — 15 min moderate pace</div>
-</div><div class="workout-block"><div class="block-title">Primary Chest Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Flat Bench Press</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Incline Dumbbell Press (bench at 30°)</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Machine Chest Press</td><td class="setsreps">4 × 10–12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Cable Chest Fly (mid height)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Shoulders A (Front + Lateral)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Machine Shoulder Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Arnold Press (seated)</td><td class="setsreps">3 × 10–12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Standing Dumbbell Lateral Raise</td><td class="setsreps">4 × 12–15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Cable Front Raise (low pulley)</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr><tr class="even"><td>Seated Behind-Neck DB Press</td><td class="setsreps">3 × 10</td><td class="rest">75 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Triceps A Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Close-Grip Barbell Bench Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Overhead Cable Rope Extension</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Straight Bar Cable Pushdown</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Dumbbell Overhead Extension (seated)</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Dumbbell Skull Crusher (flat bench)</td><td class="setsreps">3 × 10</td><td class="rest">75 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Dumbbell Side Bend (standing)</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Leg Side Twists (lying)</td><td class="setsreps">3 × 20</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section><section id="day03" class="day-section">
+  <div class="meta-pill warmup">🔥 Cross Trainer — 25 min moderate-high (~225 cal)</div>
+  <div class="meta-pill finisher">⚡ Warm-up covers the cardio target. No separate finisher.</div>
+</div><div class="workout-block"><div class="block-title">Chest Block — Barbell Day</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Flat Bench Press</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Smith Machine Incline Press (30°)</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Machine Chest Press</td><td class="setsreps">4 × 10–12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Cable Chest Fly (mid height)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="even"><td>High-to-Low Cable Fly (upper pulley)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Shoulders A (targeted)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Machine Shoulder Press</td><td class="setsreps">3 × 10–12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Standing Dumbbell Lateral Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="even"><td>Cable Front Raise (low pulley)</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Triceps A Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Close-Grip Barbell Bench Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Overhead Cable Rope Extension</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Straight Bar Cable Pushdown</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Dumbbell Overhead Extension (seated)</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Dumbbell Skull Crusher (flat bench)</td><td class="setsreps">3 × 10</td><td class="rest">75 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Dumbbell Side Bend (standing)</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr><tr class="even"><td>Oblique Side Crunch</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section><section id="day03" class="day-section">
 <div class="day-header" style="background: linear-gradient(135deg, #10B981 0%, #065F46 100%)">
   <div class="day-num">DAY 03</div>
-  <div class="day-title">Wednesday: Legs A</div>
-  <div class="day-sub">Quads · Hamstrings · Glutes · Core</div>
+  <div class="day-title">Wednesday: Legs A — All Guns Out</div>
+  <div class="day-sub">Full Leg Session · Every Angle · Maximum Volume</div>
 </div>
 <div class="day-meta">
-  <div class="meta-pill warmup">🔥 Stepper — 10–12 min</div>
-  <div class="meta-pill finisher">⚡ Rowing Machine — 15 min moderate-high intensity</div>
-</div><div class="workout-block"><div class="block-title">Primary Legs Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Back Squat</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Leg Press</td><td class="setsreps">4 × 10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Seated Leg Curl</td><td class="setsreps">4 × 12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Smith Machine Hack Squat</td><td class="setsreps">3 × 12</td><td class="rest">90 sec</td></tr><tr class="even"><td>Abductor Machine</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Calf Raise (on Leg Press platform)</td><td class="setsreps">4 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Oblique Side Crunch</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr></tbody></table></div></div></section><section id="day04" class="day-section">
+  <div class="meta-pill warmup">🔥 Stepper — 25 min moderate (~210 cal)</div>
+  <div class="meta-pill finisher">⚡ Warm-up covers the cardio target. No separate finisher.</div>
+</div><div class="workout-block"><div class="block-title">Primary Legs Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Back Squat</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Leg Press</td><td class="setsreps">5 × 10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Seated Leg Curl</td><td class="setsreps">4 × 12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Leg Extension</td><td class="setsreps">4 × 15</td><td class="rest">75 sec</td></tr><tr class="even"><td>Smith Machine Hack Squat</td><td class="setsreps">4 × 12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Bulgarian Split Squat (dumbbell)</td><td class="setsreps">3 × 10 each</td><td class="rest">90 sec</td></tr><tr class="even"><td>Abductor Machine</td><td class="setsreps">4 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Calf Raise (on Leg Press platform)</td><td class="setsreps">5 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div></section><section id="day04" class="day-section">
 <div class="day-header" style="background: linear-gradient(135deg, #8B5CF6 0%, #5B21B6 100%)">
   <div class="day-num">DAY 04</div>
   <div class="day-title">Thursday: Pull B</div>
   <div class="day-sub">Back (Row-led) · Biceps B</div>
 </div>
 <div class="day-meta">
-  <div class="meta-pill warmup">🔥 Treadmill — 10 min light jog or incline walk</div>
-  <div class="meta-pill finisher">⚡ Air Bike — 15 min moderate steady state</div>
-</div><div class="workout-block"><div class="block-title">Primary Back Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Bent Over Row</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Assisted Pull-Up Machine</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Underhand (Supinated) Lat Pulldown</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Wide-Grip Seated Cable Row</td><td class="setsreps">4 × 10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Dumbbell Pullover (flat bench)</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Single-Arm Cable Row (low pulley)</td><td class="setsreps">3 × 12 each</td><td class="rest">75 sec</td></tr><tr class="even"><td>Smith Machine Shrug</td><td class="setsreps">4 × 12</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Biceps B Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Dumbbell Hammer Curl (alternate)</td><td class="setsreps">4 × 10 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Cable Curl (low pulley, rope)</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Cross-Body Hammer Curl</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Seated Dumbbell Curl (strict)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="even"><td>Cable Drag Curl (elbows back)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Leg Side Twists (lying)</td><td class="setsreps">3 × 20</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr></tbody></table></div></div></section><section id="day05" class="day-section">
+  <div class="meta-pill warmup">🔥 Air Bike — 18 min moderate (~220 cal)</div>
+  <div class="meta-pill finisher">⚡ Warm-up covers the cardio target. No separate finisher.</div>
+</div><div class="workout-block"><div class="block-title">Primary Back Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Barbell Bent Over Row</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Assisted Pull-Up Machine</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Underhand (Supinated) Lat Pulldown</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Wide-Grip Seated Cable Row</td><td class="setsreps">4 × 10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Dumbbell Pullover (flat bench)</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Single-Arm Cable Row (low pulley)</td><td class="setsreps">3 × 12 each</td><td class="rest">75 sec</td></tr><tr class="even"><td>Smith Machine Shrug</td><td class="setsreps">4 × 12</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Biceps B Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Dumbbell Hammer Curl (alternate)</td><td class="setsreps">4 × 10 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Cable Curl (low pulley, rope)</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Cross-Body Hammer Curl</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Seated Dumbbell Curl (strict)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="even"><td>Cable Drag Curl (elbows back)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Leg Side Twists (lying)</td><td class="setsreps">3 × 20</td><td class="rest">45 sec</td></tr><tr class="even"><td>Oblique Side Crunch</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section><section id="day05" class="day-section">
 <div class="day-header" style="background: linear-gradient(135deg, #EF4444 0%, #991B1B 100%)">
   <div class="day-num">DAY 05</div>
   <div class="day-title">Friday: Push B</div>
-  <div class="day-sub">Chest (OHP/Incline-led) · Shoulders C · Triceps B</div>
+  <div class="day-sub">Chest (Dumbbell Flat + Smith Incline-led) · Shoulders B · Triceps B</div>
 </div>
 <div class="day-meta">
-  <div class="meta-pill warmup">🔥 Air Bike — 10 min easy</div>
-  <div class="meta-pill finisher">⚡ Cross Trainer — 15 min moderate-high resistance</div>
-</div><div class="workout-block"><div class="block-title">Primary Chest Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Smith Machine Incline Press (bench 30°)</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Flat Dumbbell Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Low Cable Chest Fly (incline angle)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Smith Machine Decline Press (–15°)</td><td class="setsreps">3 × 10</td><td class="rest">75 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Shoulders C (Lateral + Rear)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Seated Dumbbell Overhead Press (strict)</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Cable Lateral Raise (single arm)</td><td class="setsreps">4 × 15 each</td><td class="rest">60 sec</td></tr><tr class="even"><td>Rear Delt Cable Fly (high pulley)</td><td class="setsreps">3 × 15 each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Face Pull (rope, eye-level)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="even"><td>Dumbbell Upright Row (narrow grip)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Triceps B Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Smith Machine Close-Grip Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Cable V-Bar Pushdown</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Single-Arm Cable Overhead Extension</td><td class="setsreps">3 × 12 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Bent-Over Dumbbell Kickback</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr><tr class="even"><td>Rope Cable Pushdown (double contraction)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Oblique Side Crunch</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Dumbbell Side Bend (standing)</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section><section id="day06" class="day-section">
+  <div class="meta-pill warmup">🔥 Treadmill — 28 min at 7% incline, 5.5 km/h (~230 cal)</div>
+  <div class="meta-pill finisher">⚡ Warm-up covers the cardio target. No separate finisher.</div>
+</div><div class="workout-block"><div class="block-title">Chest Block — Dumbbell Day</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Smith Machine Incline Press (30°)</td><td class="setsreps">5 × 3–5</td><td class="rest">3 min</td></tr><tr class="odd"><td>Flat Dumbbell Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Low Cable Chest Fly (incline angle)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Machine Chest Press</td><td class="setsreps">3 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Cable Chest Fly (mid, squeeze)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Shoulders B (targeted)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Smith Machine Shoulder Press (seated)</td><td class="setsreps">3 × 10–12</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Standing Barbell Military Press</td><td class="setsreps">3 × 8–10</td><td class="rest">90 sec</td></tr><tr class="even"><td>Seated Dumbbell Lateral Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Rear Delt Cable Fly (high pulley)</td><td class="setsreps">2 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Triceps B Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Smith Machine Close-Grip Press</td><td class="setsreps">4 × 8–10</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Cable V-Bar Pushdown</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="even"><td>Single-Arm Cable Overhead Extension</td><td class="setsreps">3 × 12 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Bent-Over Dumbbell Kickback</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr><tr class="even"><td>Rope Cable Pushdown (double contraction)</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div></section><section id="day06" class="day-section">
 <div class="day-header" style="background: linear-gradient(135deg, #F59E0B 0%, #92400E 100%)">
   <div class="day-num">DAY 06</div>
-  <div class="day-title">Saturday: Legs B + Arms</div>
-  <div class="day-sub">Posterior Legs · Biceps C · Triceps C</div>
+  <div class="day-title">Saturday: Legs B + Functional</div>
+  <div class="day-sub">Posterior Legs (moderate) · Hyrox-Style Circuit · Sides</div>
 </div>
 <div class="day-meta">
-  <div class="meta-pill warmup">🔥 Stepper — 10 min</div>
-  <div class="meta-pill finisher">⚡ Treadmill — 15 min moderate pace</div>
-</div><div class="workout-block"><div class="block-title">Primary Legs Block</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Romanian Deadlift (barbell)</td><td class="setsreps">5 × 4–6</td><td class="rest">2.5 min</td></tr><tr class="odd"><td>Barbell Glute Bridge (on floor)</td><td class="setsreps">4 × 12</td><td class="rest">90 sec</td></tr><tr class="even"><td>Bulgarian Split Squat (dumbbell)</td><td class="setsreps">3 × 10 each leg</td><td class="rest">90 sec</td></tr><tr class="odd"><td>Leg Press (feet high, wide stance)</td><td class="setsreps">4 × 12</td><td class="rest">90 sec</td></tr><tr class="even"><td>Seated Leg Curl</td><td class="setsreps">4 × 15</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Dumbbell Reverse Lunge</td><td class="setsreps">3 × 12 each leg</td><td class="rest">75 sec</td></tr><tr class="even"><td>Abductor Machine</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Barbell Standing Calf Raise</td><td class="setsreps">4 × 15</td><td class="rest">45 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Biceps C Block (High Volume)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Seated Incline DB Curl (30°, arms behind)</td><td class="setsreps">4 × 10 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Barbell Preacher Curl</td><td class="setsreps">4 × 10</td><td class="rest">75 sec</td></tr><tr class="even"><td>Cable Rope Curl (both arms, wide grip)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Reverse Cable Curl (overhand grip)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="even"><td>Zottman Curl</td><td class="setsreps">3 × 10 each</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Triceps C Block (High Volume)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Overhead Cable Extension (straight bar)</td><td class="setsreps">4 × 12</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Incline Dumbbell Skull Crusher (15–20°)</td><td class="setsreps">4 × 10</td><td class="rest">75 sec</td></tr><tr class="even"><td>Reverse-Grip Cable Pushdown (medial head)</td><td class="setsreps">3 × 12</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Dumbbell Kickback (bilateral)</td><td class="setsreps">3 × 12 each</td><td class="rest">60 sec</td></tr><tr class="even"><td>Diamond Push-Up (to failure)</td><td class="setsreps">3 × failure</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Abs</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Toe Touch (lying)</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr><tr class="even"><td>Leg Side Twists (lying)</td><td class="setsreps">3 × 20</td><td class="rest">45 sec</td></tr><tr class="odd"><td>Plank</td><td class="setsreps">2 × 60 sec</td><td class="rest">60 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Oblique Side Crunch</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section>
+  <div class="meta-pill warmup">🔥 Skipping Rope — 5 min easy to warm up joints</div>
+  <div class="meta-pill finisher">⚡ Functional circuit IS the cardio — burns 250+ cal.</div>
+</div><div class="workout-block"><div class="block-title">Legs Block (moderate volume)</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Romanian Deadlift (barbell)</td><td class="setsreps">4 × 6–8</td><td class="rest">2.5 min</td></tr><tr class="odd"><td>Barbell Glute Bridge (floor)</td><td class="setsreps">4 × 12</td><td class="rest">90 sec</td></tr><tr class="even"><td>Dumbbell Reverse Lunge</td><td class="setsreps">3 × 12 each</td><td class="rest">75 sec</td></tr><tr class="odd"><td>Seated Leg Curl</td><td class="setsreps">3 × 15</td><td class="rest">75 sec</td></tr><tr class="even"><td>Abductor Machine</td><td class="setsreps">3 × 15</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Barbell Standing Calf Raise</td><td class="setsreps">3 × 15</td><td class="rest">45 sec</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title triset"><span class="triset-tag">TRISET</span>Triset A — Power Circuit · 3 rounds · 90 sec rest between rounds</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Kettlebell Swings</td><td class="setsreps">25 reps</td><td class="rest">—</td></tr><tr class="odd"><td>Battle Rope Alternating Waves</td><td class="setsreps">45 sec</td><td class="rest">—</td></tr><tr class="even"><td>Skipping Rope</td><td class="setsreps">90 sec fast</td><td class="rest">—</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title triset"><span class="triset-tag">TRISET</span>Triset B — Strength & Conditioning · 3 rounds · 90 sec rest</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Weighted Ball Slams</td><td class="setsreps">20 reps</td><td class="rest">—</td></tr><tr class="odd"><td>Kettlebell Goblet Squat</td><td class="setsreps">20 reps</td><td class="rest">—</td></tr><tr class="even"><td>Battle Rope Double Waves</td><td class="setsreps">45 sec</td><td class="rest">—</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title triset"><span class="triset-tag">TRISET</span>Triset C — Abs Finisher · 3 rounds · 60 sec rest</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Hanging Knee Raise</td><td class="setsreps">20 reps</td><td class="rest">—</td></tr><tr class="odd"><td>Weighted Ball Russian Twist (seated)</td><td class="setsreps">20 each side</td><td class="rest">—</td></tr><tr class="even"><td>Plank</td><td class="setsreps">60 sec</td><td class="rest">—</td></tr></tbody></table></div></div><div class="workout-block"><div class="block-title">Sides</div><div class="workout-block-wrap"><table class="workout-table"><thead><tr><th>Exercise</th><th>Sets × Reps</th><th>Rest</th></tr></thead><tbody><tr class="even"><td>Side Plank</td><td class="setsreps">2 × 45 sec each</td><td class="rest">60 sec</td></tr><tr class="odd"><td>Dumbbell Side Bend (standing)</td><td class="setsreps">3 × 15 each</td><td class="rest">45 sec</td></tr><tr class="even"><td>Leg Side Twists (lying)</td><td class="setsreps">3 × 20</td><td class="rest">45 sec</td></tr></tbody></table></div></div></section>
 <section id="exercise-library">
 <div class="section-title">How I Do It</div>
-<p class="section-desc">Every exercise I run in this program — setup, execution, and the cues that actually matter. Hit <strong style="color:#F87171">Watch Tutorial</strong> for a video or <strong style="color:#93C5FD">ExRx Guide</strong> for the full breakdown.</p>
+<p class="section-desc">Every exercise in this program — setup, execution, and the cues that matter. Hit <strong style="color:#F87171">Watch Tutorial</strong> to open the YouTube search for that exercise.</p>
 </section>
 <section id="back" class="muscle-section">
 <div class="section-label" style="color:#3B82F6">◆ BACK</div>
@@ -649,7 +580,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+deadlift+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/GluteusMaximus/BBDeadlift" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -664,7 +594,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+bent+over+row+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/LatissimusDorsi/BBBentOverRow" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -679,7 +608,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=lat+pulldown+form+wide+grip+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/LatissimusDorsi/CBFrontPulldown" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -694,7 +622,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=seated+cable+row+form+close+grip+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/LatissimusDorsi/CBSeatedRow" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -709,7 +636,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+face+pull+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidPosterior/CBFacePull" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -724,7 +650,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=single+arm+dumbbell+row+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/LatissimusDorsi/DBBentOverRow" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -739,7 +664,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=straight+arm+cable+pulldown+lat+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/LatissimusDorsi/CBStraightArmPulldown" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -754,7 +678,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+shrug+form+traps+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TrapeziusUpper/BBShrug" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 <section id="chest" class="muscle-section">
@@ -773,7 +696,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+flat+bench+press+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/PectoralSternal/BBBenchPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -788,7 +710,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=incline+dumbbell+press+30+degree+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/PectoralClavicular/DBInclineBenchPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -803,7 +724,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+chest+fly+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/PectoralSternal/CBCrossover" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -818,7 +738,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=machine+chest+press+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/PectoralSternal/LVBenchPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -833,7 +752,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=smith+machine+incline+press+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/PectoralClavicular/SMInclineBenchPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -848,7 +766,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=flat+dumbbell+press+form+chest+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/PectoralSternal/DBBenchPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 <section id="shoulders" class="muscle-section">
@@ -867,7 +784,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=standing+barbell+overhead+press+OHP+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidAnterior/BBMilitaryPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -882,7 +798,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=machine+shoulder+press+form+overhead+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidAnterior/LVShoulderPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -897,7 +812,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=Arnold+press+dumbbell+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidAnterior/DBArnoldPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -912,7 +826,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=dumbbell+lateral+raise+form+shoulder+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidLateral/DBLateralRaise" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -927,7 +840,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+lateral+raise+single+arm+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidLateral/CBLateralRaise" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -942,7 +854,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=rear+delt+fly+bent+over+dumbbell+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidPosterior/DBBentLateralRaise" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -957,7 +868,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+reverse+fly+rear+delt+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidPosterior/CBRearDeltFly" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -972,7 +882,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=upright+row+form+technique+shoulders+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/DeltoidLateral/BBUprightRow" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 <section id="biceps" class="muscle-section">
@@ -991,7 +900,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+bicep+curl+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Biceps/BBCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1006,7 +914,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=incline+dumbbell+curl+form+bicep+peak+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Biceps/DBInclineCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1021,7 +928,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=hammer+curl+form+brachialis+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Brachioradialis/DBHammerCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1036,7 +942,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+preacher+curl+bicep+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Biceps/CBPreachers" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1051,7 +956,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=concentration+curl+bicep+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Biceps/DBConcentrationCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1066,7 +970,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+curl+bicep+low+pulley+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Biceps/CBCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1081,7 +984,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=reverse+barbell+curl+form+forearms+brachioradialis+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Brachioradialis/BBReverseCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1096,7 +998,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=Zottman+curl+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Biceps/DBZottmanCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 <section id="triceps" class="muscle-section">
@@ -1115,7 +1016,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=close+grip+bench+press+tricep+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/BBCloseGripBenchPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1130,7 +1030,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=overhead+cable+rope+tricep+extension+long+head+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/CBOverheadExtension" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1145,7 +1044,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=cable+tricep+pushdown+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/CBPushdown" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1160,7 +1058,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=skull+crusher+dumbbell+form+technique+tricep+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/DBLyingExtension" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1175,7 +1072,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=dumbbell+overhead+tricep+extension+seated+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/DBOverheadExtension" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1190,7 +1086,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=tricep+pushdown+cable+rope+V-bar+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/CBPushdown" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1205,7 +1100,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=dumbbell+kickback+tricep+form+lateral+head+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/DBKickback" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1220,7 +1114,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=reverse+grip+tricep+pushdown+medial+head+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/TricepsBrachii/CBReverseGripPushdown" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 <section id="legs" class="muscle-section">
@@ -1239,7 +1132,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+back+squat+form+depth+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Quadriceps/BBSquat" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1254,7 +1146,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=Romanian+deadlift+RDL+form+hamstrings+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/OlympicLifts/RomanianDeadlift" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1269,7 +1160,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=leg+press+form+technique+quads+glutes+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Quadriceps/LVLegPress" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 
@@ -1285,7 +1175,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=Bulgarian+split+squat+form+technique+dumbbell+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Quadriceps/BBSplitSquat" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1300,7 +1189,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=leg+curl+form+technique+hamstrings+lying+seated+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Hamstrings/LVLegCurl" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 
@@ -1316,7 +1204,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=abductor+machine+form+hip+abductors+glute+medius+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/HipAbductors/LVHipAbduction" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1331,7 +1218,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=Smith+machine+hack+squat+form+quads+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Quadriceps/SMHackSquat" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1346,7 +1232,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=barbell+glute+bridge+floor+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/GluteusMaximus/BBGluteBridge" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1361,7 +1246,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=dumbbell+reverse+lunge+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Quadriceps/DBReverseLunge" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 <section id="core" class="muscle-section">
@@ -1380,7 +1264,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=hanging+knee+raise+abs+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/HipFlexors/WGHangingKneeRaise" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1395,7 +1278,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=lying+toe+touch+crunch+abs+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/RectusAbdominis/BWToeTouches" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1410,7 +1292,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=plank+form+core+stability+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/RectusAbdominis/BWPlank" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1425,7 +1306,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=side+plank+obliques+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Obliques/BWSidePlank" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1440,7 +1320,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=oblique+side+crunch+form+technique+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Obliques/BWObliqueCrunch" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1455,7 +1334,6 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=lying+leg+side+twist+windshield+wiper+obliques+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Obliques/BWLegSideTwist" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div>
 <div class="ex-card">
@@ -1470,14 +1348,13 @@ section[id] { scroll-margin-top: 50px; }
   </div>
   <div class="ex-card-footer">
     <a href="https://www.youtube.com/results?search_query=dumbbell+side+bend+oblique+form+proper+form+technique" target="_blank" class="btn-yt">▶ Watch Tutorial</a>
-    <a href="https://exrx.net/WeightExercises/Obliques/DBSideBend" target="_blank" class="btn-exrx">📖 ExRx Guide</a>
   </div>
 </div></div></section>
 
 <div class="section-title" id="notes">My Rules</div>
-<p class="section-desc">The principles this whole thing is built on. Non-negotiable.</p>
+<p class="section-desc">How to get the most out of this program.</p>
 <div class="notes-grid">
-<div class="note-card"><h3>Progressive Overload</h3><p>The 5-set heavy blocks run at ~85–90% of 1RM. I add one rep to my total across 5 sets, or add 2.5–5 kg to the bar. I track every working set. No tracking, no progress.</p></div><div class="note-card"><h3>Rest Periods</h3><p><ul><li>Main compounds (5-set): 2.5–3 min</li><li>Secondary compounds: 90 sec</li><li>Accessories / machines: 60–75 sec</li><li>Isolation and abs: 45–60 sec</li></ul></p></div><div class="note-card"><h3>Cardio and Fat Loss</h3><p>Warm-up gets the joints ready. The finisher — done after lifting when glycogen is already partially burned — hits fat stores harder. Monday and Thursday HIIT finishers create afterburn that runs for hours post-session.</p></div><div class="note-card"><h3>Nutrition</h3><p>2.0–2.4 g protein per kg bodyweight. Slight surplus on training days to feed the muscle. Sunday at maintenance or a slight deficit. Simple, consistent, not negotiable.</p></div><div class="note-card"><h3>Shoulders — 2× a Week</h3><p>Tuesday and Friday each have a shoulder block that between them cover all three heads. I pulled shoulders off leg day to keep Wednesday clean and recovery sharper. Front, lateral, and rear still get full attention.</p></div><div class="note-card"><h3>Arms — Why 3×</h3><p>Biceps and triceps each get a completely different exercise pool on each session. Long head/short head emphasis alternates across the week. Saturday&apos;s dedicated arm block adds peak volume when the muscles are fully recovered from Monday/Tuesday.</p></div></div>
+<div class="note-card"><h3>Progressive Overload</h3><p>The 5-set heavy blocks at 3–5 reps use ~85–90% of 1RM. Add one rep to your total across 5 sets, or add 2.5–5 kg to the bar. Track your working sets every session.</p></div><div class="note-card"><h3>Rest Periods</h3><p><ul><li>Main compounds (5-set): 2.5–3 min</li><li>Secondary compounds: 90 sec</li><li>Accessories / machines: 60–75 sec</li><li>Isolation and abs: 45–60 sec</li></ul></p></div><div class="note-card"><h3>Cardio and Fat Loss</h3><p>Warm-up cardio prepares the joints. The finisher, done after lifting when muscle glycogen is partially depleted, draws more directly from fat stores. HIIT finishers on Mon and Thu create prolonged caloric afterburn.</p></div><div class="note-card"><h3>Nutrition</h3><p>Target 2.0–2.4 g protein per kg bodyweight daily. Slight caloric surplus on training days to support muscle gain. Rest day (Sunday) can be at maintenance or slight deficit.</p></div><div class="note-card"><h3>Shoulders — 2× Per Week</h3><p>Tuesday and Friday each have a dedicated shoulder block covering all three heads across the two sessions. No shoulder work on leg days keeps Wednesday focused and recovery clean. Front, lateral, and rear delts still get full attention.</p></div><div class="note-card"><h3>Arms — Why 3×</h3><p>Biceps and triceps each get a completely different exercise pool on each session. Long head/short head emphasis alternates across the week. Saturday&apos;s dedicated arm block adds peak volume when the muscles are fully recovered from Monday/Tuesday.</p></div></div>
 </div>
 
 
