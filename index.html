@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swapnil's Regime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --paper:#FAF7F0;
+  --paper2:#FFFFFF;
+  --ink:#26221C;
+  --ink-soft:#6E665A;
+  --line:#E9E1CF;
+  --blue:#3B82F6;
+  --orange:#F97316;
+  /* dark-world tokens (from Exercises page) */
+  --dark:#0A0D14;
+  --dark2:#111827;
+  --dark-border:#374151;
+  --dark-text:#F1F5F9;
+  --dark-muted:#64748B;
+  /* light-world tokens (from Meals page) */
+  --olive:#5C6B2F;
+  --olive-bg:#F0F1E2;
+  --teal:#2F6560;
+}
+
+html{scroll-behavior:smooth;}
+body{
+  font-family:"DM Sans", system-ui, sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ── HERO ── */
+.hero{
+  text-align:center;
+  padding:76px 24px 40px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 30% -10%, rgba(59,130,246,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 0%, rgba(92,107,47,0.10) 0%, transparent 55%);
+  pointer-events:none;
+}
+.eyebrow{
+  font-family:"Oswald", sans-serif;
+  font-size:12px;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:18px;
+  position:relative;
+}
+.hero h1{
+  font-family:"Oswald", sans-serif;
+  font-weight:700;
+  font-size:clamp(56px, 12vw, 118px);
+  line-height:0.9;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  margin-bottom:22px;
+  position:relative;
+}
+.hero h1 .accent{ color:var(--blue); }
+.hero-sub{
+  font-size:18px;
+  color:var(--ink-soft);
+  max-width:540px;
+  margin:0 auto;
+  position:relative;
+}
+
+/* ── STAT BAR ── */
+.statbar{
+  display:flex;
+  justify-content:center;
+  gap:0;
+  max-width:640px;
+  margin:38px auto 0;
+  background:var(--paper2);
+  border:1.5px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+}
+.statbar > div{
+  flex:1;
+  padding:16px 8px 14px;
+  text-align:center;
+  border-right:1.5px solid var(--line);
+}
+.statbar > div:last-child{ border-right:none; }
+.statbar .v{
+  font-family:"Oswald", sans-serif;
+  font-weight:600;
+  font-size:30px;
+  color:var(--ink);
+  line-height:1;
+}
+.statbar .k{
+  font-size:10.5px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:5px;
+}
+
+/* ── CHOICE CARDS ── */
+.choice{
+  max-width:940px;
+  margin:20px auto 0;
+  padding:24px 24px 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.card{
+  position:relative;
+  border-radius:22px;
+  overflow:hidden;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  min-height:340px;
+  border:1.5px solid var(--line);
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+.card:hover{ transform:translateY(-4px); box-shadow:0 18px 44px rgba(0,0,0,0.14); }
+
+/* Exercises — dark world */
+.card.exercises{
+  background:linear-gradient(150deg, #0A0D14 0%, #0F172A 45%, #1A1040 100%);
+  border-color:#1E293B;
+}
+.card.exercises::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% -20%, rgba(59,130,246,0.22) 0%, transparent 62%);
+  pointer-events:none;
+}
+/* Meals — light world */
+.card.meals{
+  background:var(--paper2);
+}
+.card.meals::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% -20%, rgba(92,107,47,0.10) 0%, transparent 62%);
+  pointer-events:none;
+}
+
+.card-inner{
+  position:relative;
+  padding:30px 30px 28px;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  flex:1;
+}
+.card-kicker{
+  font-family:"Oswald", sans-serif;
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+.card.exercises .card-kicker{ color:var(--blue); }
+.card.meals .card-kicker{ color:var(--olive); }
+
+.card-title{
+  font-family:"Oswald", sans-serif;
+  font-weight:700;
+  font-size:44px;
+  line-height:0.95;
+  letter-spacing:-0.01em;
+  margin-bottom:14px;
+}
+.card.exercises .card-title{ color:#FFF; }
+.card.meals .card-title{ color:var(--ink); }
+
+.card-desc{
+  font-size:15px;
+  line-height:1.55;
+  margin-bottom:22px;
+  max-width:34ch;
+}
+.card.exercises .card-desc{ color:var(--dark-text); opacity:0.82; }
+.card.meals .card-desc{ color:var(--ink-soft); }
+
+/* tag row */
+.tags{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:auto; }
+.tag{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  padding:5px 11px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.card.exercises .tag{ background:rgba(255,255,255,0.08); color:var(--dark-text); border:1px solid rgba(255,255,255,0.14); }
+.card.meals .tag{ background:var(--olive-bg); color:var(--olive); }
+
+.card-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-family:"Oswald", sans-serif;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-top:26px;
+}
+.card.exercises .card-cta{ color:#FFF; }
+.card.meals .card-cta{ color:var(--ink); }
+.card-cta .arrow{ transition:transform .2s ease; font-size:18px; }
+.card:hover .card-cta .arrow{ transform:translateX(5px); }
+
+/* colored spine at bottom */
+.card-spine{ height:5px; width:100%; }
+.card.exercises .card-spine{ background:linear-gradient(90deg,#3B82F6,#8B5CF6,#EC4899); }
+.card.meals .card-spine{ background:linear-gradient(90deg,#5C6B2F,#2F6560,#B4531F); }
+
+/* ── STRIP / note ── */
+.note{
+  max-width:940px;
+  margin:28px auto 0;
+  padding:0 24px;
+}
+.note-inner{
+  background:var(--paper2);
+  border:1.5px solid var(--line);
+  border-radius:16px;
+  padding:20px 26px;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.note-inner .lbl{
+  font-family:"JetBrains Mono", monospace;
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--teal);
+  flex-shrink:0;
+}
+.note-inner p{ font-size:14.5px; color:var(--ink-soft); margin:0; }
+
+/* ── FOOTER ── */
+footer{
+  margin-top:auto;
+  padding:44px 24px 40px;
+  text-align:center;
+}
+footer .quote{
+  font-family:"Fraunces", serif;
+  font-style:italic;
+  font-size:19px;
+  color:var(--ink);
+  max-width:460px;
+  margin:0 auto 10px;
+}
+footer small{
+  font-size:12px;
+  letter-spacing:0.1em;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  font-family:"Oswald", sans-serif;
+}
+
+@media (max-width:720px){
+  .hero{ padding:52px 20px 30px; }
+  .choice{ grid-template-columns:1fr; gap:16px; padding:20px 20px 0; }
+  .card{ min-height:auto; }
+  .card-title{ font-size:38px; }
+  .statbar{ margin-top:30px; }
+  .statbar .v{ font-size:24px; }
+}
+</style>
+<meta name="theme-color" content="#FAF7F0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Regime">
+</head>
+<body>
+
+<div class="hero">
+  <div class="eyebrow">Train Hard &middot; Eat Right &middot; No Belly Fat</div>
+  <h1>SWAPNIL'S<br><span class="accent">REGIME</span></h1>
+  <p class="hero-sub">One system, two halves. The training that builds it, and the food that fuels it. Pick where you're headed.</p>
+
+  <div class="statbar">
+    <div><div class="v">6</div><div class="k">Training Days</div></div>
+    <div><div class="v">5</div><div class="k">Meal Day Types</div></div>
+    <div><div class="v">~2,184</div><div class="k">Daily Kcal</div></div>
+    <div><div class="v">15%</div><div class="k">Body Fat Goal</div></div>
+  </div>
+</div>
+
+<div class="choice">
+
+  <a class="card exercises" href="https://theophastus.github.io/Gym/Exercises/">
+    <div class="card-inner">
+      <div class="card-kicker">The Training</div>
+      <div class="card-title">EXERCISES</div>
+      <p class="card-desc">Pull / Push / Legs across six days. Every exercise, every set, every cue, with tutorial links for each movement.</p>
+      <div class="tags">
+        <span class="tag">6-Day Split</span>
+        <span class="tag">Full Exercise Library</span>
+        <span class="tag">Form Cues</span>
+      </div>
+      <div class="card-cta">Open the program <span class="arrow">&rarr;</span></div>
+    </div>
+    <div class="card-spine"></div>
+  </a>
+
+  <a class="card meals" href="https://theophastus.github.io/Gym/Meals/">
+    <div class="card-inner">
+      <div class="card-kicker">The Fuel</div>
+      <div class="card-title">MEALS</div>
+      <p class="card-desc">A seven-day meal plan mapped to the split. Every recipe measured, timed around late-night training, with a weekly shopping list and supplement stack.</p>
+      <div class="tags">
+        <span class="tag">7-Day Plan</span>
+        <span class="tag">Weekly Shopping</span>
+        <span class="tag">Supplements</span>
+      </div>
+      <div class="card-cta">Open the kitchen <span class="arrow">&rarr;</span></div>
+    </div>
+    <div class="card-spine"></div>
+  </a>
+
+</div>
+
+<div class="note">
+  <div class="note-inner">
+    <span class="lbl">Remember</span>
+    <p>Training and food are two halves of one thing. The single biggest lever for the goal, sleep, sits outside both pages, and matters more than any set or any meal here.</p>
+  </div>
+</div>
+
+<footer>
+  <p class="quote">"Muscle, strength, and no belly fat."</p>
+  <small>Built for one person &middot; me</small>
+</footer>
+
+</body>
+</html>
