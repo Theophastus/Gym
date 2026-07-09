@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutrition &amp; Cooking Reference</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root{
+  --paper:#FAF7F0;
+  --card:#FFFFFF;
+  --ink:#26221C;
+  --ink-soft:#6E665A;
+  --line:#E9E1CF;
+  --line-soft:#F0EADC;
+  --rust:#B4531F;        --rust-bg:#FBEEE3;
+  --olive:#5C6B2F;       --olive-bg:#F0F1E2;
+  --teal:#2F6560;        --teal-bg:#E4EFED;
+  --plum:#7A3B52;        --plum-bg:#F5E8ED;
+  --slate:#3F566B;       --slate-bg:#E7EDF2;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Inter',sans-serif; font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'JetBrains Mono',monospace;}
+.wrap{max-width:860px; margin:0 auto; padding:0 20px 90px;}
+
+.masthead{padding:38px 0 8px;}
+.masthead .kicker{
+  font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ink-soft); margin:0 0 10px;
+}
+.masthead h1{
+  font-family:'Fraunces',serif; font-weight:600; font-size:46px; line-height:1.0;
+  margin:0 0 12px; letter-spacing:-0.01em;
+}
+.masthead p{color:var(--ink-soft); font-size:16.5px; margin:0; max-width:60ch;}
+
+.nav{
+  position:sticky; top:0; z-index:60; background:rgba(250,247,240,0.94);
+  backdrop-filter:blur(8px); border-bottom:1.5px solid var(--line);
+  margin:24px -20px 0; padding:10px 20px;
+}
+.nav-inner{max-width:860px; margin:0 auto; display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-btn{
+  white-space:nowrap; border:1.5px solid var(--line); background:var(--card);
+  border-radius:11px; padding:9px 15px; cursor:pointer; font-weight:600; font-size:14.5px;
+  color:var(--ink-soft); transition:all .14s ease; font-family:'Inter',sans-serif;
+}
+.nav-btn:hover{border-color:var(--ink-soft);}
+.nav-btn.active{color:#fff;}
+.nav-btn.active[data-c="rust"]{background:var(--rust); border-color:var(--rust);}
+.nav-btn.active[data-c="olive"]{background:var(--olive); border-color:var(--olive);}
+.nav-btn.active[data-c="teal"]{background:var(--teal); border-color:var(--teal);}
+.nav-btn.active[data-c="plum"]{background:var(--plum); border-color:var(--plum);}
+.nav-btn.active[data-c="slate"]{background:var(--slate); border-color:var(--slate);}
+.nav-btn.active[data-c="ink"]{background:var(--ink); border-color:var(--ink);}
+
+.panel{display:none; padding-top:30px;}
+.panel.show{display:block; animation:fade .25s ease;}
+@keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+
+.eyebrow{
+  font-family:'JetBrains Mono',monospace; font-size:12.5px; letter-spacing:0.16em;
+  text-transform:uppercase; margin:0 0 5px; font-weight:700;
+}
+.panel h2{font-family:'Fraunces',serif; font-weight:600; font-size:33px; margin:0 0 6px; line-height:1.05;}
+.panel .lede{color:var(--ink-soft); font-size:16px; margin:0 0 24px; max-width:62ch;}
+
+[data-accent="rust"] .eyebrow{color:var(--rust);}
+[data-accent="olive"] .eyebrow{color:var(--olive);}
+[data-accent="teal"] .eyebrow{color:var(--teal);}
+[data-accent="plum"] .eyebrow{color:var(--plum);}
+[data-accent="slate"] .eyebrow{color:var(--slate);}
+[data-accent="ink"] .eyebrow{color:var(--ink-soft);}
+
+.macros{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  background:var(--card); border:1.5px solid var(--line); border-radius:16px;
+  overflow:hidden; margin-bottom:26px;
+}
+.macros > div{padding:17px 8px 15px; text-align:center; border-right:1.5px solid var(--line-soft);}
+.macros > div:last-child{border-right:none;}
+.macros b{display:block; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:25px;}
+.macros span{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;}
+[data-accent="rust"] .macros b{color:var(--rust);} [data-accent="olive"] .macros b{color:var(--olive);}
+[data-accent="teal"] .macros b{color:var(--teal);} [data-accent="plum"] .macros b{color:var(--plum);}
+[data-accent="slate"] .macros b{color:var(--slate);}
+
+.timeline{display:flex; overflow-x:auto; border:1.5px solid var(--line); border-radius:14px;
+  background:var(--card); margin-bottom:32px; scrollbar-width:none;}
+.timeline::-webkit-scrollbar{display:none;}
+.timeline > div{flex:1; min-width:120px; padding:14px 12px; text-align:center; border-right:1.5px dashed var(--line-soft);}
+.timeline > div:last-child{border-right:none;}
+.timeline .t{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12.5px; color:var(--ink-soft); display:block; margin-bottom:4px;}
+.timeline .l{font-weight:700; font-size:14px;}
+.timeline .n{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+
+.card{background:var(--card); border:1.5px solid var(--line); border-radius:18px; margin-bottom:20px; overflow:hidden;}
+.card-head{display:flex; justify-content:space-between; align-items:flex-start; gap:14px; padding:16px 22px 14px; border-bottom:1.5px solid var(--line-soft);}
+.card-head .meal{font-family:'Fraunces',serif; font-weight:600; font-size:21px;}
+.card-head .when{font-family:'JetBrains Mono',monospace; font-size:12.5px; font-weight:700; color:var(--ink-soft); text-align:right; white-space:nowrap; padding-top:5px;}
+.card-body{padding:16px 22px 20px;}
+.ing{display:flex; justify-content:space-between; align-items:center; gap:14px; padding:9px 0; border-bottom:1px solid var(--line-soft);}
+.ing:last-of-type{border-bottom:none;}
+.ing .name{font-size:15.5px;}
+.ing .qty{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:14px; white-space:nowrap; padding:4px 12px; border-radius:20px;}
+[data-accent="rust"] .ing .qty{background:var(--rust-bg); color:var(--rust);}
+[data-accent="olive"] .ing .qty{background:var(--olive-bg); color:var(--olive);}
+[data-accent="teal"] .ing .qty{background:var(--teal-bg); color:var(--teal);}
+[data-accent="plum"] .ing .qty{background:var(--plum-bg); color:var(--plum);}
+[data-accent="slate"] .ing .qty{background:var(--slate-bg); color:var(--slate);}
+.method-h{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; margin:18px 0 10px; color:var(--ink-soft);}
+ol.steps{margin:0; padding:0; list-style:none; counter-reset:s;}
+ol.steps li{counter-increment:s; position:relative; padding:6px 0 6px 40px; font-size:15.5px; line-height:1.5;}
+ol.steps li::before{content:counter(s); position:absolute; left:0; top:5px; width:27px; height:27px; border-radius:50%;
+  font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center;}
+[data-accent="rust"] ol.steps li::before{background:var(--rust-bg); color:var(--rust);}
+[data-accent="olive"] ol.steps li::before{background:var(--olive-bg); color:var(--olive);}
+[data-accent="teal"] ol.steps li::before{background:var(--teal-bg); color:var(--teal);}
+[data-accent="plum"] ol.steps li::before{background:var(--plum-bg); color:var(--plum);}
+[data-accent="slate"] ol.steps li::before{background:var(--slate-bg); color:var(--slate);}
+.tip{margin-top:14px; padding:11px 15px; border-radius:11px; font-size:14px; font-weight:500;}
+[data-accent="rust"] .tip{background:var(--rust-bg); color:var(--rust);}
+[data-accent="olive"] .tip{background:var(--olive-bg); color:var(--olive);}
+[data-accent="teal"] .tip{background:var(--teal-bg); color:var(--teal);}
+[data-accent="plum"] .tip{background:var(--plum-bg); color:var(--plum);}
+[data-accent="slate"] .tip{background:var(--slate-bg); color:var(--slate);}
+.card-macros{display:grid; grid-template-columns:repeat(4,1fr); border-top:1.5px solid var(--line-soft);}
+.card-macros > div{padding:11px 4px; text-align:center; border-right:1px solid var(--line-soft);}
+.card-macros > div:last-child{border-right:none;}
+.card-macros b{display:block; font-family:'JetBrains Mono',monospace; font-size:16px;}
+.card-macros span{font-size:10px; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-soft);}
+
+.shop-note{background:var(--card); border:1.5px solid var(--line); border-radius:14px; padding:16px 20px; margin-bottom:22px; font-size:15px; color:var(--ink-soft);}
+.shop-note b{color:var(--ink);}
+.shop-cat{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin:24px 0 10px;}
+.shop-item{display:flex; align-items:center; gap:13px; background:var(--card); border:1.5px solid var(--line); border-radius:12px; padding:13px 15px; margin-bottom:9px; cursor:pointer; transition:opacity .14s;}
+.shop-item.done{opacity:0.4;} .shop-item.done .sname{text-decoration:line-through;}
+.cbox{width:23px; height:23px; border-radius:7px; border:2.5px solid var(--line); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:14px; transition:all .12s;}
+.shop-item.done .cbox{background:var(--olive); border-color:var(--olive);}
+.sname{flex:1; font-size:15.5px;}
+.sqty{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:14.5px; background:var(--olive-bg); color:var(--olive); padding:4px 12px; border-radius:20px; white-space:nowrap;}
+
+.supp{background:var(--card); border:1.5px solid var(--line); border-radius:14px; padding:15px 18px; margin-bottom:11px;}
+.supp-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:3px;}
+.supp-name{font-weight:700; font-size:16.5px;}
+.supp-time{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:var(--teal); background:var(--teal-bg); padding:3px 10px; border-radius:16px; white-space:nowrap;}
+.supp-dose{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink-soft); margin-bottom:5px;}
+.supp-why{font-size:14px; color:var(--ink-soft);}
+.supp.stop{border-color:#E0C4B8; background:#FCF1EC;}
+.supp.stop .supp-time{color:var(--rust); background:var(--rust-bg);}
+.supp.add{border-color:#C9D3B8; background:#F5F7EE;}
+.supp.add .supp-time{color:var(--olive); background:var(--olive-bg);}
+
+.callout{background:var(--card); border:1.5px solid var(--line); border-left:4px solid var(--teal); border-radius:12px; padding:16px 20px; margin:18px 0; font-size:15px;}
+.callout b{color:var(--ink);}
+.section-rule{font-family:'Fraunces',serif; font-weight:600; font-size:24px; margin:34px 0 4px; padding-bottom:8px; border-bottom:2px solid var(--line);}
+.two-col{display:grid; grid-template-columns:1fr; gap:11px;}
+.mini{background:var(--card); border:1.5px solid var(--line); border-radius:12px; padding:14px 18px;}
+.mini h4{margin:0 0 5px; font-size:15.5px;}
+.mini p{margin:0; font-size:14px; color:var(--ink-soft);}
+
+footer{text-align:center; color:var(--ink-soft); font-size:13px; margin-top:46px; padding-top:24px; border-top:1.5px solid var(--line);}
+
+@media (min-width:640px){ .two-col{grid-template-columns:1fr 1fr;} }
+@media (max-width:540px){
+  .masthead h1{font-size:34px;} .panel h2{font-size:27px;}
+  .macros b{font-size:20px;} body{font-size:16px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <p class="kicker">Personal Nutrition Protocol</p>
+    <h1>The Kitchen Bible</h1>
+    <p>Seven days, mapped to your Pull / Push / Legs / Hyrox split. Built around a 12:30 AM session and a late sleep. Every quantity measured, every meal timed.</p>
+  </div>
+  <div class="nav"><div class="nav-inner" id="nav"></div></div>
+  <div id="panels"></div>
+  <footer>Weekly average ~2,184 kcal &middot; ~18% deficit &middot; Protein 170-200g daily &middot; Recalculate maintenance after a 3-4 kg drop or 4-6 weeks</footer>
+</div>
+
+<script>
+const C = {rust:'rust', olive:'olive', teal:'teal', plum:'plum', slate:'slate', ink:'ink'};
+
+const WAKE = {
+  meal:"Wake-Up Scramble + Oats", when:"On waking, ~12:30-1 PM",
+  ing:[["Whole eggs","5"],["Spinach, chopped","60 g"],["Desi ghee","0.5 tsp"],["Rolled oats","55 g"],["Chia seeds","1 tbsp"],["Water (for oats)","160 ml"],["Salt & pepper","to taste"]],
+  steps:["Heat 0.5 tsp ghee in a non-stick pan on medium-low.",
+    "Add chopped spinach, cook 1-2 min until wilted and the water dries off.",
+    "Crack in all 5 eggs, season with salt and pepper, scramble gently 3-4 min until just set.",
+    "Separately, boil 160 ml water, add oats, simmer 4-5 min until creamy.",
+    "Stir 1 tbsp chia seeds into the cooked oats, let sit 2 min to thicken.",
+    "Serve scramble and oats together."],
+  macros:[42,37,48,666]
+};
+const BANANA = {meal:"Pre-Gym Banana", when:"~12:00 AM, before leaving", ing:[["Banana, medium","1"]], steps:["Eat as-is. No prep."], macros:[1,0.4,27,105]};
+
+const DAYS = [
+  {id:"mon", tab:"Mon", accent:C.rust, eyebrow:"Pull Day", title:"Monday \u00b7 Pull",
+    lede:"Back and pull work. Protein spread across the wake meal and a substantial 7 PM dinner, with a lighter, faster post-gym meal so it sits easy before sleep.",
+    macros:[199,63,225,2271],
+    timeline:[["12:30 PM","Wake","Eggs + oats"],["7:00 PM","Dinner","Chicken + rice"],["12:00 AM","Pre-gym","Banana"],["12:30-4 AM","Pull session",""],["4:15 AM","Post-gym","Whey + chicken"],["6:00 AM","Sleep",""]],
+    meals:[WAKE, BANANA,
+      {meal:"Dinner", when:"~7:00-7:30 PM", ing:[["Chicken breast, raw","253 g \u2192 190 g cooked"],["Rice, raw","107 g \u2192 320 g cooked"],["Desi ghee","2 tsp"],["Broccoli florets","100 g"]],
+        steps:["Marinate diced chicken in 100 g curd + salt + 0.5 tsp turmeric + 0.5 tsp pepper (30 min, or overnight).","Pan-sear on medium-high 2-3 min per side, cover, cook 6-8 min on medium-low until no pink.","Rinse and cook rice 1:2 with water, 12-15 min.","Blanch broccoli 3-4 min in salted water.","Stir 2 tsp ghee through the chicken and rice, plate with broccoli."],
+        macros:[78,18,77,803]},
+      {meal:"Post-Gym", when:"~4:15 AM", ing:[["Chicken breast, raw","227 g \u2192 170 g cooked"],["Rice, raw","53 g \u2192 160 g cooked"],["Whey (Avvatar Isorich)","1 scoop"],["Buttermilk","150 ml"],["Cucumber","100 g"]],
+        steps:["Reheat pre-cooked chicken and rice until hot.","Shake 1 scoop whey with water.","Serve with sliced cucumber and buttermilk on the side."],
+        tip:"Lighter and faster than the old version, easier on sleep, still 79 g protein for overnight repair.", macros:[79,8,72,995]}
+    ]},
+  {id:"tue", tab:"Tue", accent:C.olive, eyebrow:"Push Day", title:"Tuesday \u00b7 Push",
+    lede:"Chest, shoulders, triceps. Soya-based protein for variety from chicken. A tomato-onion soya masala carries the post-gym meal, rice served alongside.",
+    macros:[178,69,220,2186],
+    timeline:[["12:30 PM","Wake","Eggs + oats"],["7:00 PM","Light meal","Whey + rice"],["12:00 AM","Pre-gym","Banana"],["12:30-4 AM","Push session",""],["4:15 AM","Post-gym","Soya masala"],["6:00 AM","Sleep",""]],
+    meals:[WAKE, BANANA,
+      {meal:"Light Meal", when:"~7:00-7:30 PM", ing:[["Whey (Avvatar Isorich)","2 scoops"],["Rice, raw","30 g \u2192 90 g cooked"],["Buttermilk","150 ml"]],
+        steps:["Cook 30 g rice, or use a portion set aside.","Shake 2 scoops whey with ~350 ml cold water.","Serve together with buttermilk."],
+        macros:[55,4,32,385]},
+      {meal:"Soya Masala + Rice", when:"~4:15 AM (cook ahead)", ing:[["Soya chunks, dry","140 g"],["Onion, chopped","80 g"],["Tomato, chopped","100 g"],["Desi ghee","6 tsp"],["Rice, raw","66 g \u2192 198 g cooked"],["Ginger-garlic paste","1 tsp"],["Garam masala","1 tsp"],["Turmeric","0.5 tsp"],["Chili powder","0.5 tsp"],["Salt","to taste"]],
+        steps:["Soak soya chunks in warm water 10 min, boil 5 min, squeeze dry.","Heat ghee, fry onion until golden, add ginger-garlic paste, cook 1 min.","Add tomato, cook down 4-5 min into a gravy.","Add turmeric, chili, garam masala, salt.","Add soya chunks, simmer 5 min to absorb the gravy.","Cook rice separately, serve alongside (not mixed in). Cook ahead, reheat at 4:15 AM."],
+        tip:"Cook the full batch in the evening and refrigerate, reheat when you get back from the gym.", macros:[80,29,113,1030]}
+    ]},
+  {id:"wed", tab:"Wed", accent:C.teal, eyebrow:"Legs Day", title:"Wednesday \u00b7 Legs",
+    lede:"Heaviest recruitment of the week, so the biggest food day. Chicken split between a real dinner and a solid post-gym meal, both feeds substantial.",
+    macros:[186,62,232,2225],
+    timeline:[["12:30 PM","Wake","Eggs + oats"],["7:00 PM","Dinner","Curd + chicken"],["12:00 AM","Pre-gym","Banana"],["12:30-4 AM","Legs session",""],["4:15 AM","Post-gym","Chicken + rice"],["6:00 AM","Sleep",""]],
+    meals:[WAKE, BANANA,
+      {meal:"Dinner", when:"~7:00-7:30 PM", ing:[["Chicken breast, raw","213 g \u2192 160 g cooked"],["Hung curd","120 g"],["Cucumber","60 g"],["Carrot, grated","40 g"],["Rice, raw","63 g \u2192 190 g cooked"]],
+        steps:["Cook chicken as on Pull day (curd marinade, pan + lid).","Make a quick kachumber: mix hung curd with grated carrot, diced cucumber, salt, and cumin.","Serve chicken and rice with the kachumber on the side."],
+        macros:[64,16,59,500]},
+      {meal:"Post-Gym", when:"~4:15 AM", ing:[["Chicken breast, raw","173 g \u2192 130 g cooked"],["Rice, raw","98 g \u2192 295 g cooked"],["Whey (Avvatar Isorich)","1 scoop"],["Buttermilk","150 ml"],["Broccoli florets","100 g"]],
+        steps:["Reheat pre-cooked chicken and rice.","Blanch broccoli 3-4 min.","Shake 1 scoop whey with water, serve everything with buttermilk."],
+        macros:[78,14,95,1000]}
+    ]},
+  {id:"thu", tab:"Thu", accent:C.rust, eyebrow:"Pull Day", title:"Thursday \u00b7 Pull",
+    lede:"Second Pull day. Same structure as Monday, but the chicken uses a cumin-garlic spice blend and dinner swaps broccoli for green beans, so it doesn't taste identical.",
+    macros:[198,63,225,2267],
+    timeline:[["12:30 PM","Wake","Eggs + oats"],["7:00 PM","Dinner","Chicken + rice"],["12:00 AM","Pre-gym","Banana"],["12:30-4 AM","Pull session",""],["4:15 AM","Post-gym","Whey + chicken"],["6:00 AM","Sleep",""]],
+    meals:[WAKE, BANANA,
+      {meal:"Dinner", when:"~7:00-7:30 PM", ing:[["Chicken breast, raw","253 g \u2192 190 g cooked"],["Rice, raw","107 g \u2192 320 g cooked"],["Desi ghee","2 tsp"],["Green beans","100 g"]],
+        steps:["Marinate diced chicken in 100 g curd + 4-5 crushed garlic cloves + 1 tsp cumin powder + 1 tsp black pepper + salt (30 min+).","Pan-sear, cover, cook through as usual.","Cook rice; blanch or lightly saute the green beans.","Stir 2 tsp ghee through, plate with green beans."],
+        tip:"Same technique as Monday, different spice blend and vegetable, so two Pull days don't taste the same.", macros:[77,18,77,799]},
+      {meal:"Post-Gym", when:"~4:15 AM", ing:[["Chicken breast, raw","227 g \u2192 170 g cooked"],["Rice, raw","53 g \u2192 160 g cooked"],["Whey (Avvatar Isorich)","1 scoop"],["Buttermilk","150 ml"],["Cucumber","100 g"]],
+        steps:["Reheat chicken and rice.","Shake whey with water.","Serve with cucumber and buttermilk."],
+        macros:[79,8,72,995]}
+    ]},
+  {id:"fri", tab:"Fri", accent:C.olive, eyebrow:"Push Day", title:"Friday \u00b7 Push",
+    lede:"Second Push day. A soya-paneer pulao (everything cooked together) instead of Tuesday's masala, so the two Push days feel like different meals.",
+    macros:[176,67,222,2171],
+    timeline:[["12:30 PM","Wake","Eggs + oats"],["7:00 PM","Light meal","Whey + rice"],["12:00 AM","Pre-gym","Banana"],["12:30-4 AM","Push session",""],["4:15 AM","Post-gym","Pulao"],["6:00 AM","Sleep",""]],
+    meals:[WAKE, BANANA,
+      {meal:"Light Meal", when:"~7:00-7:30 PM", ing:[["Whey (Avvatar Isorich)","2 scoops"],["Rice, raw","30 g \u2192 90 g cooked"],["Buttermilk","150 ml"]],
+        steps:["Cook 30 g rice, or use a set-aside portion.","Shake 2 scoops whey with cold water.","Serve with buttermilk."],
+        macros:[55,4,32,385]},
+      {meal:"Soya-Paneer Pulao", when:"~4:15 AM (cook ahead)", ing:[["Soya chunks, dry","111 g"],["Paneer, cubed","50 g"],["Rice, raw","77 g \u2192 230 g cooked"],["Desi ghee","2.5 tsp"],["Onion","40 g"],["Bell pepper","40 g"],["Carrot","20 g"],["Cumin seeds","0.5 tsp"],["Turmeric + chili","0.5 tsp each"],["Salt","to taste"],["Curd (side)","100 g"]],
+        steps:["Soak soya 10 min, boil 5 min, squeeze dry. Soak rice 15-20 min, drain.","Heat ghee, add cumin seeds, then onion + bell pepper + carrot, saute 2-3 min.","Add soya and paneer, saute gently 2 min (don't break the paneer).","Add turmeric, chili, salt, then the rice, stir to coat.","Add ~115 ml water, boil, cover and simmer 12-15 min.","Rest 5 min, fluff. Cook ahead, reheat at 4:15 AM. Serve with curd."],
+        macros:[102,28,117,1131]}
+    ]},
+  {id:"sat", tab:"Sat", accent:C.plum, eyebrow:"Hyrox Day", title:"Saturday \u00b7 Hyrox",
+    lede:"Functional / conditioning work. Higher carbs, lower fat, faster-digesting fuel. The post-gym meal is deliberately light and carb-forward for a glycolytic session.",
+    macros:[169,56,253,2192],
+    timeline:[["12:30 PM","Wake","Eggs + oats"],["7:00 PM","Dinner","Chicken + rice"],["12:00 AM","Pre-gym","Banana"],["12:30-4 AM","Hyrox session",""],["4:15 AM","Post-gym","Whey + rice"],["6:00 AM","Sleep",""]],
+    meals:[WAKE, BANANA,
+      {meal:"Dinner", when:"~7:00-7:30 PM", ing:[["Chicken breast, raw","240 g \u2192 180 g cooked"],["Rice, raw","90 g \u2192 270 g cooked"],["Desi ghee","1.5 tsp"],["Cucumber","50 g"],["Tomato","50 g"]],
+        steps:["Cook chicken (curd marinade, pan + lid).","Cook rice.","Make a raw cucumber-tomato salad, no cooking needed.","Stir 1.5 tsp ghee through, plate with the salad."],
+        macros:[64,14,79,725]},
+      {meal:"Post-Gym", when:"~4:15 AM", ing:[["Whey (Avvatar Isorich)","2 scoops"],["Rice, raw","110 g \u2192 330 g cooked"],["Buttermilk","150 ml"]],
+        steps:["Reheat rice.","Shake 2 scoops whey with cold water.","Serve with buttermilk. Add a pinch of salt to the buttermilk, you sweat more today."],
+        tip:"Carb-forward and fast, refills glycogen after a conditioning session without a heavy meal before sleep.", macros:[55,4,95,697]}
+    ]},
+  {id:"sun", tab:"Sun", accent:C.slate, eyebrow:"Rest Day", title:"Sunday \u00b7 Rest",
+    lede:"No training, so no midnight bookend. Three normal-timed meals, the biggest calorie pullback of the week (carbs down, protein held), and the most varied plate.",
+    macros:[177,65,175,1977],
+    timeline:[["Late morning","Breakfast","Eggs + oats"],["Midday","Lunch","Chicken + rice"],["Evening","Dinner","Whey + curd + apple"]],
+    meals:[
+      {...WAKE, meal:"Breakfast", when:"Normal wake time"},
+      {meal:"Lunch", when:"Midday", ing:[["Chicken breast, raw","267 g \u2192 200 g cooked"],["Rice, raw","103 g \u2192 310 g cooked"],["Broccoli florets","100 g"],["Desi ghee","1.5 tsp"]],
+        steps:["Cook chicken (curd marinade, pan + lid).","Cook rice, blanch broccoli.","Stir 1.5 tsp ghee through, plate together."],
+        macros:[71,16,98,605]},
+      {meal:"Dinner", when:"Evening", ing:[["Chicken breast, raw","120 g \u2192 90 g cooked"],["Whey (Avvatar Isorich)","1 scoop"],["Hung curd","100 g"],["Cucumber","100 g"],["Apple, medium","1"]],
+        steps:["Reheat a small chicken portion (from lunch batch).","Shake 1 scoop whey.","Serve with hung curd, sliced cucumber, and an apple, the one day fruit isn't just banana."],
+        macros:[64,12,52,625]}
+    ]}
+];
+
+const SHOP = {
+  "Proteins & dairy":[
+    ["Chicken breast, raw","1.97 kg"],["Whey (Avvatar Isorich)","10 scoops"],["Eggs","35"],
+    ["Soya chunks, dry","251 g"],["Paneer","50 g"],["Hung curd","220 g"],["Curd (regular)","100 g"],["Buttermilk","900 ml"]
+  ],
+  "Grains, seeds & fats":[
+    ["Rice, raw (dry)","1.0 kg"],["Rolled oats","385 g"],["Chia seeds","7 tbsp (~85 g)"],["Desi ghee","~90 g"]
+  ],
+  "Vegetables & fruit":[
+    ["Spinach","420 g"],["Broccoli","300 g"],["Green beans","100 g"],["Cucumber","410 g"],
+    ["Tomato","150 g"],["Onion","120 g"],["Bell pepper","40 g"],["Carrot","60 g"],["Bananas","6"],["Apple","1"]
+  ],
+  "Pantry (check stock)":[
+    ["Turmeric, chili, garam masala","\u2014"],["Cumin (seeds + powder)","\u2014"],["Ginger-garlic paste","\u2014"],
+    ["Garlic, black pepper","\u2014"],["Salt","1-1.3 tsp/day"]
+  ]
+};
+
+const SUPPS = {
+  add:[
+    ["Omega-3 (fish oil)","1-2 g EPA+DHA","With wake meal","Directly targets your flagged LDL and HDL/LDL ratio. Fat present in the meal aids absorption.","add"],
+    ["Creatine monohydrate","5 g","Any time, daily","Best-evidenced supplement for strength and lean mass. Nothing in your labs contraindicates it.","add"],
+    ["Glycine","3 g","30-60 min before bed","Lowers core body temperature and improves sleep quality, aimed at your nighttime waking.","add"],
+    ["L-theanine","100-200 mg","30-60 min before bed","Added per your request. Targets calm and sleep onset more than waking, so watch whether it helps you.","add"],
+    ["Psyllium husk (isabgol)","1 tbsp, 2x","Wake meal + 7 PM meal","~10 g fiber for near-zero calories, corrects the low fiber on chicken-heavy days. Not near the 4 AM meal.","add"]
+  ],
+  keep:[
+    ["Vitamin D","Confirm maintenance dose","Morning, w/ food","Was corrected from deficient to sufficient. Confirm you're on maintenance, not a leftover correction dose.",""],
+    ["Multivitamin","As labeled","Morning","Fine to keep.",""],
+    ["Becosules","As labeled","Morning","Fine to keep. Check it isn't stacking excess of anything the multivitamin already covers.",""],
+    ["Magnesium","200-400 mg","~1 hr before bed","Keep, but confirm it's glycinate or citrate, not oxide. Glycinate overlaps with the glycine above.",""],
+    ["Boron","6-10 mg","Morning","Keep, low priority, mild supportive evidence.",""],
+    ["Ashwagandha","300-600 mg","Evening","Keep, real evidence for cortisol and modest testosterone support, relevant given the recovery load.",""]
+  ],
+  stop:[
+    ["Zinc (standalone)","STOP","\u2014","Your labs showed zinc at 150 ug/dL (range 70-115), already high before this supplement. Stop it.","stop"],
+    ["Autrin (iron)","Ask your doctor","\u2014","Iron, ferritin, hemoglobin all normal. Iron accumulates rather than clearing. Question why you're on it.","stop"],
+    ["Copper","Do NOT add","\u2014","Copper was already at the 87th percentile. Fixing the zinc is what helps copper, don't supplement it.","stop"]
+  ]
+};
+
+function macroStrip(m){
+  return '<div class="macros"><div><b>'+m[0]+'g</b><span>Protein</span></div><div><b>'+m[1]+'g</b><span>Fat</span></div><div><b>'+m[2]+'g</b><span>Carbs</span></div><div><b>'+m[3]+'</b><span>Kcal</span></div></div>';
+}
+function recipeCard(r){
+  var h = '<div class="card"><div class="card-head"><div class="meal">'+r.meal+'</div><div class="when">'+r.when+'</div></div><div class="card-body">';
+  h += r.ing.map(function(i){return '<div class="ing"><div class="name">'+i[0]+'</div><div class="qty">'+i[1]+'</div></div>';}).join('');
+  h += '<div class="method-h">Method</div><ol class="steps">'+r.steps.map(function(s){return '<li>'+s+'</li>';}).join('')+'</ol>';
+  if(r.tip) h += '<div class="tip">'+r.tip+'</div>';
+  h += '</div>';
+  if(r.macros) h += '<div class="card-macros"><div><b>'+r.macros[0]+'g</b><span>Protein</span></div><div><b>'+r.macros[1]+'g</b><span>Fat</span></div><div><b>'+r.macros[2]+'g</b><span>Carbs</span></div><div><b>'+r.macros[3]+'</b><span>Kcal</span></div></div>';
+  h += '</div>';
+  return h;
+}
+
+var nav = document.getElementById('nav');
+var panels = document.getElementById('panels');
+
+DAYS.forEach(function(d){
+  nav.insertAdjacentHTML('beforeend', '<div class="nav-btn" data-c="'+d.accent+'" data-target="'+d.id+'" onclick="show(\''+d.id+'\')">'+d.tab+'</div>');
+  var p = '<div class="panel" id="'+d.id+'" data-accent="'+d.accent+'"><p class="eyebrow">'+d.eyebrow+'</p><h2>'+d.title+'</h2><p class="lede">'+d.lede+'</p>'+macroStrip(d.macros);
+  p += '<div class="timeline">'+d.timeline.map(function(t){return '<div><span class="t">'+t[0]+'</span><div class="l">'+t[1]+'</div><div class="n">'+t[2]+'</div></div>';}).join('')+'</div>';
+  p += d.meals.map(recipeCard).join('')+'</div>';
+  panels.insertAdjacentHTML('beforeend', p);
+});
+
+nav.insertAdjacentHTML('beforeend', '<div class="nav-btn" data-c="ink" data-target="shop" onclick="show(\'shop\')">Shopping</div>');
+var shopHTML = '<div class="panel" id="shop" data-accent="ink"><p class="eyebrow">One trip a week</p><h2>Weekly Shopping List</h2><p class="lede">Everything for all seven days, aggregated. Tap items to check them off as you shop.</p><div class="shop-note"><b>Buy fresh, mid-week top-up:</b> chicken, curd, buttermilk, spinach and other greens don\'t keep a full week, split into two buys (e.g. Sunday + Wednesday). <b>Buys once:</b> rice, oats, chia, whey, ghee, soya chunks all store fine for the week.</div>';
+var idx=0;
+Object.keys(SHOP).forEach(function(cat){
+  shopHTML += '<div class="shop-cat">'+cat+'</div>';
+  SHOP[cat].forEach(function(it){
+    shopHTML += '<div class="shop-item" id="sh-'+idx+'" onclick="this.classList.toggle(\'done\')"><div class="cbox">\u2713</div><div class="sname">'+it[0]+'</div>'+(it[1]!=='\u2014'?'<div class="sqty">'+it[1]+'</div>':'')+'</div>';
+    idx++;
+  });
+});
+shopHTML += '</div>';
+panels.insertAdjacentHTML('beforeend', shopHTML);
+
+nav.insertAdjacentHTML('beforeend', '<div class="nav-btn" data-c="teal" data-target="supps" onclick="show(\'supps\')">Supplements</div>');
+function suppCard(s){
+  var cls = s[4]==='stop'?'supp stop':(s[4]==='add'?'supp add':'supp');
+  return '<div class="'+cls+'"><div class="supp-top"><div class="supp-name">'+s[0]+'</div><div class="supp-time">'+s[2]+'</div></div><div class="supp-dose">'+s[1]+'</div><div class="supp-why">'+s[3]+'</div></div>';
+}
+var suppHTML = '<div class="panel" id="supps" data-accent="teal"><p class="eyebrow">The Stack</p><h2>Supplements</h2><p class="lede">Reviewed against your actual bloodwork, not a generic list. Three things to add, two to stop, one to never add, and the rest to keep with small fixes.</p>';
+suppHTML += '<div class="section-rule">Add these</div>'+SUPPS.add.map(suppCard).join('');
+suppHTML += '<div class="section-rule">Keep (with the noted fix)</div>'+SUPPS.keep.map(suppCard).join('');
+suppHTML += '<div class="section-rule">Stop / don\'t add</div>'+SUPPS.stop.map(suppCard).join('');
+suppHTML += '<div class="callout"><b>Hydration:</b> 3.5 L on lifting days, 4 L on Hyrox day, 3 L on rest day. Roughly 500 ml on waking, 500 ml with each meal, 500-750 ml through the session.<br><br><b>Sodium:</b> 2,300-3,000 mg/day, about 1 to 1.3 tsp of salt total across everything you cook. Top of the range on Hyrox day.</div>';
+suppHTML += '<div class="callout"><b>Higher impact than any supplement for your night waking:</b> keep the room cool, take a hot shower 60-90 min before bed (helps you cool afterward), and the lighter 4:15 AM meal is already doing its part. Training-to-sleep proximity matters more here than anything you can swallow.</div></div>';
+panels.insertAdjacentHTML('beforeend', suppHTML);
+
+nav.insertAdjacentHTML('beforeend', '<div class="nav-btn" data-c="ink" data-target="how" onclick="show(\'how\')">How it works</div>');
+var howHTML = '<div class="panel" id="how" data-accent="ink"><p class="eyebrow">The system</p><h2>How the week fits together</h2><p class="lede">The goal: lose fat toward 15%, hold and slowly build muscle, and give the diet-controllable side of testosterone its best shot. The lever the diet can\'t pull is sleep, that matters more than any meal here.</p>';
+howHTML += '<div class="two-col">';
+howHTML += '<div class="mini"><h4>Calorie cycling</h4><p>Training days run higher, rest day pulls back hardest (carbs down, protein held). Weekly average ~2,184 kcal, an ~18% deficit off ~2,700 maintenance.</p></div>';
+howHTML += '<div class="mini"><h4>Protein distribution</h4><p>170-200g daily, spread across feedings rather than dumped at 4 AM. No single meal exceeds ~85g, so it\'s used efficiently and sits easier before sleep.</p></div>';
+howHTML += '<div class="mini"><h4>Meal timing</h4><p>Anchored to your real day: wake ~12:30 PM, one 7 PM meal, banana before the gym, a lighter meal on returning at 4:15 AM, sleep by 6.</p></div>';
+howHTML += '<div class="mini"><h4>Variety</h4><p>Five day-types, two spice profiles for chicken, soya masala vs pulao on Push days, and rotating vegetables so no week is monotonous.</p></div>';
+howHTML += '<div class="mini"><h4>The fiber & lipid fix</h4><p>Psyllium husk twice daily plus chia in the oats and omega-3 all target your flagged LDL and HDL/LDL ratio directly.</p></div>';
+howHTML += '<div class="mini"><h4>Recalculate</h4><p>Maintenance was estimated at your starting weight. After a 3-4 kg drop or 4-6 weeks, redo the math off your new weight, the deficit shrinks as you lighten.</p></div>';
+howHTML += '</div>';
+howHTML += '<div class="callout"><b>Retest:</b> once you\'re meaningfully closer to 15%, repeat the blood panel, total testosterone plus <i>calculated</i> free T (not the ELISA version), morning and fasted. That\'s how you\'ll know if any of this moved the number you actually care about.</div></div>';
+panels.insertAdjacentHTML('beforeend', howHTML);
+
+function show(id){
+  var ps = document.querySelectorAll('.panel');
+  for(var i=0;i<ps.length;i++) ps[i].classList.remove('show');
+  var bs = document.querySelectorAll('.nav-btn');
+  for(var j=0;j<bs.length;j++) bs[j].classList.remove('active');
+  document.getElementById(id).classList.add('show');
+  document.querySelector('.nav-btn[data-target="'+id+'"]').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+window.show = show;
+
+var dayMap = ['sun','mon','tue','wed','thu','fri','sat'];
+var todayId = dayMap[new Date().getDay()];
+show(document.getElementById(todayId)?todayId:'mon');
+</script>
+</body>
+</html>
